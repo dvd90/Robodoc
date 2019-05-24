@@ -1,5 +1,6 @@
 
-const symptoms = ["bleeding","sore throat", "fatigue","rash","diarrhea" ,"swelling", "stiffening ear","difficulty chewing","aches","coughing","swelling",  "stiffening ear","difficulty chewing","burrows","Lesions","nausea","sore throat"];
+const symptoms = ["bleeding", "sore throat", "fatigue" ,
+"rash" ,"diarrhea" ,"swelling" , "stiffening ear" ,"difficulty chewing" ,"aches" ,"coughing" ,"swelling" ,"stiffening ear" ,"difficulty chewing" ,"burrows" ,"Lesions" ,"nausea" ,"sore throat"];
 
  $( document ).ready(function() {
   let sForm = $('.symptoms-form');
