@@ -36,10 +36,18 @@ nav {
   margin-top: 3vh;
 }
 
+.side-box {
+  margin-top: 3vh;
+}
+
 .dash-container {
   margin-bottom: 6vh;
 }
 
+#diagnose-form {
+  margin-top: 10vh;
+  font-family: 'Lato', sans-serif;
+}
 
 /*footer*/
 
