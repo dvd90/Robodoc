@@ -13,7 +13,6 @@
     <title>Robodoc</title>
   </head>
   <body>
-
     <!-- Navbar Start-->
     <nav class="navbar  sticky-top navbar-expand-lg navbar-light bg-light">
       <a href="index.html"><img src="https://i.ibb.co/mqFRGhx/Image-4.png" alt="Image-4" border="0"></a>
@@ -29,7 +28,7 @@
             <a class="nav-link" href="#">GET A DIAGNOSE</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">HEALTH ALERTS</a>
+            <a class="nav-link" href="health_alert.html">HEALTH ALERTS</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,6 +44,7 @@
       </div>
     </nav>
     <!-- Navbar End-->
+    <main>
     <section id="diagnose-form">
   <div class="container">
   <div class="row justify-content-md-center">
@@ -52,53 +52,10 @@
       <div class="card">
   <div class="card-body">
     <h3 class="card-title">What are your symptoms?</h3>
-      <form action="php/get_diagnose_form.php" method="GET">
-<div class="form-check">
-  <label class="form-check-label">
-    <input type="checkbox" class="form-check-input" value="">Option 1
-  </label>
-</div>
-<div class="form-check">
-  <label class="form-check-label">
-    <input type="checkbox" class="form-check-input" value="">Option 2
-  </label>
-</div>
-<div class="form-check">
-  <label class="form-check-label">
-    <input type="checkbox" class="form-check-input" value="" >Option 3
-  </label>
-</div>
-<div class="form-check">
-  <label class="form-check-label">
-    <input type="checkbox" class="form-check-input" value="" >Option 3
-  </label>
-</div>
-<div class="form-check">
-  <label class="form-check-label">
-    <input type="checkbox" class="form-check-input" value="" >Option 3
-  </label>
-</div>
-<div class="form-check">
-  <label class="form-check-label">
-    <input type="checkbox" class="form-check-input" value="" >Option 3
-  </label>
-</div>
-<div class="form-check">
-  <label class="form-check-label">
-    <input type="checkbox" class="form-check-input" value="" >Option 3
-  </label>
-</div>
-<div class="form-check">
-  <label class="form-check-label">
-    <input type="checkbox" class="form-check-input" value="" >Option 3
-  </label>
-</div>
-<div class="form-check">
-  <label class="form-check-label">
-    <input type="checkbox" class="form-check-input" value="" >Option 3
-  </label>
-</div>
-             <button type="submit" class="pure-material-button-contained">Submit</button>
+      <form action="php/get_diagnose_form.php" method="POST">
+        <div class="symptoms-form"></div>
+
+<button type="submit" class="pure-material-button-contained">Submit</button>
 </form>
     </div>
   </div>
@@ -106,6 +63,7 @@
 
   </div>
 </div>
+</main>
       <div class="footer">
         <div class="footer-links">
           <a href="#"><i class="fab fa-github"></i></a>
@@ -124,6 +82,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="includes/js/main.js"></script>
+    <script src="includes/js/form.js"></script>
   </body>
 </html>
