@@ -49,13 +49,40 @@
     <section id="diagnose-result">
   <div class="container">
 <?php
+ini_set('display_errors', 'On');
 if (isset($_POST['chk_group'])) {
     $symptomsArray = $_POST['chk_group'];
-        for ($i=0; $i<count($symptomsArray); $i++) {
-        echo $symptomsArray[$i]."<br />";
+
+    $json = file_get_contents("../data/sick.json");
+    $j = json_decode($json);
+
+    $diseasesChecked = array_fill(0, sizeof($j), 0);
+
+    $i = 0;
+    foreach ($symptomsArray as $symptom){
+      foreach ($j as $desease) {
+        if (in_array($symptom, $desease->symptoms)){
+          $diseasesChecked[$i] += 1;
         }
+        $i += 1;
+      }
+      $i = 0;
     }
-else{
+
+echo '<pre>';
+var_dump($diseasesChecked);
+echo '</pre>';
+
+
+
+echo '<pre>';
+var_dump($j);
+echo '</pre>';
+
+echo '<pre>';
+var_dump($symptomsArray);
+echo '</pre>';
+}else{
       echo "<h3>Sorry we cannot find a match if you don't enter any of your symptoms 🤮</h3>";
 }
 
@@ -80,6 +107,5 @@ else{
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="includes/js/main.js"></script>
   </body>
 </html>
