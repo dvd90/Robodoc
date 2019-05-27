@@ -13,11 +13,11 @@ var table_row=
     '<td>' + row.date + '</td>' +
     '</tr>';
 if(row.priority == "Low"){
-  table_row = '<tr class="low-table">' + table_row;
+  table_row = '<tr class="table-success">' + table_row;
 }else if (row.priority == "Medium"){
-  table_row = '<tr class="medium-table">' + table_row;
+  table_row = '<tr class="table-warning">' + table_row;
 }else if (row.priority == "High"){
-  table_row = '<tr class="high-table">' + table_row;
+  table_row = '<tr class="table-danger">' + table_row;
 }
 
     $('tbody').append(table_row);
