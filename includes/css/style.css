@@ -53,6 +53,16 @@ main {
   margin-bottom: 6vh;
 }
 
+#diagnose-result{
+  margin-top: 10vh;
+  margin-bottom: 6vh;
+}
+
+#diagnose-result .card{
+  margin-bottom: 3vh;
+}
+}
+
 .symptoms {
   font-style: 14px;
 }

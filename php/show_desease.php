@@ -46,75 +46,10 @@
     </nav>
     <!-- Navbar End-->
     <main>
-    <section id="diagnose-result">
+    <section id="desease">
   <div class="container">
 <?php
-ini_set('display_errors', 'On');
-if (isset($_POST['chk_group'])) {
-    $symptomsArray = $_POST['chk_group'];
 
-    $json = file_get_contents("../data/sick.json");
-    $j = json_decode($json);
-
-    $diseasesChecked = array_fill(0, sizeof($j), 0);
-
-    $i = 0;
-    foreach ($symptomsArray as $symptom){
-      foreach ($j as $desease) {
-        if (in_array($symptom, $desease->symptoms)){
-          $diseasesChecked[$i] += 1;
-        }
-        $i += 1;
-      }
-      $i = 0;
-    }
-
-    $i = 0;
-    foreach ($diseasesChecked as $value) {
-      if ($value > 0){
-        $p = $value * 20;
-        $link = "show_desease.php?name={$j[$i]->name}&amp;spread={$j[$i]->spread_by}&amp;prevention={$j[$i]->prevention}";
-        echo "<div class='row justify-content-md-center'>
-        <div class='col-md-8'>
-<div class='card'>
-  <h5 class='card-header'>$p % of probability </h5>
-  <div class='card-body'>
-    <h5 class='card-title'> {$j[$i]->name} </h5>
-  <p class='card-text'>Prevention: {$j[$i]->prevention}</p>
-    <a href='{$link}' class='pure-material-button-contained'>Read More</a>
-  </div>
-  </div>
-  </div>
-</div>";
-      }
-      $i += 1;
-    }
-
-// echo '<pre>';
-// var_dump($diseasesChecked);
-// echo '</pre>';
-
-// echo '<pre>';
-// var_dump($j);
-// echo '</pre>';
-
-// echo '<pre>';
-// var_dump($symptomsArray);
-// echo '</pre>';
-}else{
-      echo "<div class='row justify-content-md-center'>
-      <div class='col-md-6'>
-<div class='card'>
-  <h5 class='card-header'>Sorry</h5>
-  <div class='card-body'>
-    <h5 class='card-title'>Sorry we cannot find a match if you don't enter any of your symptoms 🤮</h5>
-    <a href='../diagnose_form.html' class='pure-material-button-contained'>Go Back</a>
-  </div>
-  </div>
-  </div>
-</div>
-      ";
-}
 
 ?>
 </div>
