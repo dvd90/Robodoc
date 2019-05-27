@@ -192,3 +192,19 @@ main {
 .pure-material-button-contained:disabled::after {
     opacity: 0;
 }
+
+option[value=Medium] { 
+  background-color: yellow;
+}
+
+option[value=High] { 
+  background-color: red;
+}
+
+option[value=Low] { 
+  background-color: green;
+}
+
+td[html="Low"] {
+  background-color: green;
+}

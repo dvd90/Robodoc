@@ -1,0 +1,15 @@
+[
+    {"sick":"FLU","priority":"High","messege":"a high risk infection in your area","source":"Clalit","date":"25/09/2017"},
+    {"sick":"Mumps","priority":"High","messege":"please avoid getting ecounter with wild animals near you","source":"Macabi","date":"24/09/2017"},
+    {"sick":"HIV","priority":"Medium","messege":"a high risk of infection in the beaches of Tel Aviv","source":"Clalit","date":"24/09/2017"},
+    {"sick":"Scabies","priority":"Low","messege":"a high risk infection in your area","source":"Macabi","date":"24/09/2017"},
+    {"sick":"FLU","priority":"Low","messege":"a high risk infection in your area","source":"Minstry of health","date":"23/09/2017"},
+    {"sick":"Ebola","priority":"Medium","messege":"a high risk infection in your area","source":"Clalit","date":"23/09/2017"},
+    {"sick":"Listeria","priority":"High","messege":"a high risk infection in your area","source":"Clalit","date":"20/09/2017"},
+    {"sick":"FLU","priority":"Medium","messege":"a high risk of infection in the beaches of Tel Aviv","source":"Minstry of health","date":"20/09/2017"},
+    {"sick":"Scabies","priority":"Medium","messege":"a high risk infection in your area","source":"Clalit","date":"19/09/2017"},
+    {"sick":"HIV","priority":"High","messege":"please avoid getting ecounter with wild animals near you","source":"Minstry of health","date":"16/09/2017"}
+
+]
+
+
