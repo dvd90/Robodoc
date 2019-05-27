@@ -5,15 +5,21 @@ var json_data = []
         console.log(alerts)
 json_data = alerts
 for(var row of alerts) {
-var table_row= $(
-    '<tr>' +
+var table_row=
     '<td>' + row.sick + '</td>' +
-    '<td class="row.priority">' + row.priority + '</td>' +
+    '<td>' + row.priority + '</td>' +
     '<td>' + row.messege + '</td>' +
     '<td>' + row.source + '</td>' +
     '<td>' + row.date + '</td>' +
-    '</tr>'
-    )
+    '</tr>';
+if(row.priority == "Low"){
+  table_row = '<tr class="low-table">' + table_row;
+}else if (row.priority == "Medium"){
+  table_row = '<tr class="medium-table">' + table_row;
+}else if (row.priority == "High"){
+  table_row = '<tr class="high-table">' + table_row;
+}
+
     $('tbody').append(table_row);
     }
 });
