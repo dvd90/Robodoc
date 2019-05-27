@@ -10,6 +10,19 @@ a {
   text-decoration: none !important;
 }
 
+.title-ha {
+  padding: 6vh;
+}
+
+.card-logo{
+  text-align: center;
+}
+
+.index-img {
+  height: 22vh;
+  width: 22vh;
+}
+
 
 /*Navbar CSS*/
 

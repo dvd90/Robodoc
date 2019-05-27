@@ -27,19 +27,28 @@ if(row.priority == "Low"){
 $('#priority').on('change', function (e) {
 var value = e.target.value;
 var match = '';
+var buffer = ""
 console.log(value);
 
 
 for (var row of json_data) {
-if (row.priority == value || value == "all" )
-match +=
-'<tr>' +
+if (row.priority == value || value == "all" ){
+buffer =
 '<td scope="row">' + row.sick + '</td>' +
 '<td>' + row.priority + '</td>' +
 '<td>' + row.messege + '</td>' +
 '<td>' + row.source + '</td>' +
 '<td>' + row.date + '</td>' +
 '</tr>'
+if(row.priority == "Low"){
+  buffer = '<tr class="table-success">' + buffer;
+}else if (row.priority == "Medium"){
+  buffer = '<tr class="table-warning">' + buffer;
+}else if (row.priority == "High"){
+  buffer = '<tr class="table-danger">' + buffer;
+}
+match += buffer;
+}
 }
 $('tbody').html(match);
 })

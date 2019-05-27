@@ -16,29 +16,28 @@
   <body>
     <!-- Navbar Start-->
     <nav class="navbar  sticky-top navbar-expand-lg navbar-light bg-light">
-      <a href="../index.html"><img src="https://i.ibb.co/mqFRGhx/Image-4.png" alt="Image-4" border="0"></a>
+      <a href="index.html"><img src="https://i.ibb.co/mqFRGhx/Image-4.png" alt="Image-4" border="0"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="../index.html"><i class="fas fa-home"></i></a>
+            <a class="nav-link" href="index.html"><i class="fas fa-home"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../diagnose_form.html">GET A DIAGNOSE</a>
+            <a class="nav-link" href="diagnose_form.html">GET A DIAGNOSE</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../health_alert.html">HEALTH ALERTS</a>
+            <a class="nav-link" href="health_alert.html">HEALTH ALERTS</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="far fa-user"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" data-toggle="modal" data-target="#modal-login">Login</a>
+              <a class="dropdown-item" href="sign_up.html">Sign Up</a>
             </div>
           </li>
         </ul>
