@@ -97,6 +97,11 @@ main {
   color: #D23333;
 }
 
+.card-desease {
+  margin-top: 20vh;
+  margin-bottom: 20vh;
+}
+
 /*pure-btn*/
 
 .pure-material-button-contained {
@@ -203,15 +208,15 @@ main {
     opacity: 0;
 }
 
-option[value=Medium] { 
+option[value=Medium] {
   background-color: yellow;
 }
 
-option[value=High] { 
+option[value=High] {
   background-color: red;
 }
 
-option[value=Low] { 
+option[value=Low] {
   background-color: green;
 }
 
