@@ -48,10 +48,31 @@
     <main>
     <section id="desease">
   <div class="container">
+    <div class='row justify-content-md-center'>
+      <div class="col-md-8">
 <?php
+$desease_name = $_GET['name'];
+$desease_spread = $_GET['spread'];
+$desease_prevention = $_GET['prevention'];
 
+echo "<div class='card card-desease'>
+  <div class='row no-gutters'>
+    <div class='col-md-4'>
+      <img src='https://i.ibb.co/kXhT79B/Image-9-1.png' class='card-img' alt='...'>
+    </div>
+    <div class='col-md-8'>
+      <div class='card-body'>
+        <h3 class='card-title'>$desease_name</h3>
+        <h5 class='card-text'>$desease_spread</h5>
+        <p class='card-text'><small class='text-muted'>$desease_prevention</small></p>
+      </div>
+    </div>
+  </div>
+</div>";
 
 ?>
+</div>
+</div>
 </div>
 </div>
 </div>
