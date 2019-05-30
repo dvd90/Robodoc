@@ -15,7 +15,7 @@
   <body>
     <!-- Navbar Start-->
     <nav class="navbar  sticky-top navbar-expand-lg navbar-light bg-light">
-      <a href="index.html"><img src="https://i.ibb.co/mqFRGhx/Image-4.png" alt="Image-4" border="0"></a>
+      <a href="../index.html"><img src="https://i.ibb.co/mqFRGhx/Image-4.png" alt="Image-4" border="0"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
@@ -72,6 +72,8 @@
         </div>
       </div>
     </div>
+</main>
+  </section>
     <div class="footer">
       <div class="footer-links">
         <a href="#"><i class="fab fa-github"></i></a>
@@ -84,8 +86,6 @@
         <i class="fas fa-heart"></i> Shenkar
       </div>
     </div>
-  </section>
-</main>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

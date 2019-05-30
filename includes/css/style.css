@@ -58,22 +58,25 @@ main {
 }
 
 .dash-container {
-  margin-bottom: 6vh;
+  margin-bottom: 12vh;
 }
 
 #diagnose-form {
   margin-top: 10vh;
-  margin-bottom: 6vh;
+  margin-bottom: 12vh;
 }
 
 #diagnose-result{
   margin-top: 10vh;
-  margin-bottom: 6vh;
+  margin-bottom: 12vh;
 }
 
 #diagnose-result .card{
-  margin-bottom: 3vh;
+  margin-bottom: 10vh;
 }
+
+.table {
+  margin-bottom: 12vh;
 }
 
 .symptoms {
@@ -87,10 +90,15 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 75px;
   width: 100%;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
 
 }
 .footer-links {
