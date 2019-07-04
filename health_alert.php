@@ -1,3 +1,33 @@
+<?php
+    include 'db/db.php';
+    include "db/config.php";
+
+    session_start();//on logout session_destroy();
+        if(!empty($_POST["loginMail"])) { //true if form was submitted
+        $query  = "SELECT * FROM tbl_users_221 WHERE email='"
+        . $_POST["loginMail"]
+        . "' and password='"
+        . $_POST["loginPass"]
+        ."'";
+
+
+        $result = mysqli_query($connection , $query);
+        $row    = mysqli_fetch_array($result);
+
+
+        if(is_array($row)) {
+            $_SESSION["user_id"] = $row['id'];
+            header('Location: index.php');
+        } else {
+            $message = "Invalid Username or Password!";
+        }
+        }
+        if(!empty($_POST["sign_out"])){
+          $_SESSION["user_id"] = NULL;
+          header('Location: index.php');
+        }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,30 +45,52 @@
   <body>
     <!-- Navbar Start-->
     <nav class="navbar  sticky-top navbar-expand-lg navbar-light bg-light">
-      <a href="index.html"><img src="https://i.ibb.co/mqFRGhx/Image-4.png" alt="Image-4" border="0"></a>
+      <a href="index.php"><img src="https://i.ibb.co/mqFRGhx/Image-4.png" alt="Image-4" border="0"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="index.html"><i class="fas fa-home"></i></a>
+            <a class="nav-link" href="index.php"><i class="fas fa-home"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="diagnose_form.html">GET A DIAGNOSE</a>
+            <a class="nav-link" href="diagnose_form.php">GET A DIAGNOSE</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="health_alert.html">HEALTH ALERTS</a>
+            <a class="nav-link" href="health_alert.php">HEALTH ALERTS</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="far fa-user"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" data-toggle="modal" data-target="#modal-login">Login</a>
-              <a class="dropdown-item" href="sign_up.html">Sign Up</a>
-            </div>
-          </li>
+          <?php
+          if($_SESSION["user_id"]) {
+
+              $query = "SELECT name FROM tbl_users_221 WHERE id='"
+              .$_SESSION["user_id"]
+              ."'";
+              $result = mysqli_query($connection , $query);
+              $row    = mysqli_fetch_array($result);
+
+              echo '<li class="nav-item dropdown">
+                                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome '.$row["name"].'</a>
+                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <form method="post">
+   <button type="submit" name="sign_out" value="sign_out" class="dropdown-item">Sign out</button>
+</form>
+                    </div>
+                  </li>';
+
+          } else {
+
+            echo '<li class="nav-item dropdown">
+                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   <i class="far fa-user"></i>
+                   </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" data-toggle="modal" data-target="#modal-login">Login</a>
+                    <a class="dropdown-item" href="sign_up.php">Sign Up</a>
+                    </div>
+                  </li>';
+          }
+           ?>
         </ul>
       </div>
     </nav>
@@ -108,7 +160,7 @@
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
               </div>
               <button type="submit" class="pure-material-button-contained">Login</button>
-              <a href="sign_up.html">Sign-up</a>
+              <a href="sign_up.php">Sign-up</a>
             </form>
           </div>
         </div>
@@ -125,3 +177,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </body>
 </html>
+
+<?php
+//close DB connection
+mysqli_close($connection);
+?>
