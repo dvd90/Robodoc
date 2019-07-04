@@ -54,9 +54,6 @@
             <a class="nav-link" href="index.php"><i class="fas fa-home"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="diagnose_form.php">GET A DIAGNOSE</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="health_alert.php">HEALTH ALERTS</a>
           </li>
           <?php
@@ -102,7 +99,7 @@
       <div class="card">
   <div class="card-body">
     <h3 class="card-title">What are your symptoms?</h3>
-      <form action="php/get_diagnose_form.php" method="POST">
+      <form action="get_diagnose_form.php" method="POST">
         <div class="symptoms-form"></div>
 
 <button type="submit" class="pure-material-button-contained">Submit</button>
