@@ -83,6 +83,7 @@ main {
   font-style: 14px;
 }
 
+
 /*footer*/
 
 .footer {
@@ -121,6 +122,23 @@ main {
 .card-desease {
   margin-top: 20vh;
   margin-bottom: 20vh;
+}
+
+
+/*sign-up*/
+
+#sign-up {
+  margin: 8vh;
+}
+
+.title-card {
+  margin-bottom: 25px;
+  text-align: center;
+}
+.form-card-sign-up {
+  padding: 50px;
+  background: #F4F4F4;
+  border-radius: 10px;
 }
 
 /*pure-btn*/
