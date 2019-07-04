@@ -55,9 +55,6 @@
             <a class="nav-link" href="index.php"><i class="fas fa-home"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="diagnose_form.php">GET A DIAGNOSE</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="health_alert.php">HEALTH ALERTS</a>
           </li>
           <?php

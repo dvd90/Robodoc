@@ -55,9 +55,6 @@
             <a class="nav-link" href="index.php"><i class="fas fa-home"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="diagnose_form.php">GET A DIAGNOSE</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="health_alert.php">HEALTH ALERTS</a>
           </li>
           <?php
@@ -69,7 +66,10 @@
               $result = mysqli_query($connection , $query);
               $row    = mysqli_fetch_array($result);
 
-              echo '<li class="nav-item dropdown">
+              echo '<li class="nav-item">
+            <a class="nav-link" href="diagnose_form.php">GET A DIAGNOSE</a>
+          </li>
+              <li class="nav-item dropdown">
                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome '.$row["name"].'</a>
                                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <form method="post">
