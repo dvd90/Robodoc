@@ -11,8 +11,8 @@
   },
   { "name": "Mumps",
    "symptoms": ["swelling", " stiffening ear", "difficulty chewing","aches"],
-  "spread_by": "",
-  "prevention": ""
+  "spread_by": "Bloodborne through blood & body fluids Educate on mode of transmission & need for early diagnosis",
+  "prevention": "Educate on mode of transmission & need for early diagnosis & tx. No work or school until day after tx started. Contact isolation. Disinfection for clothes & bed sheets used 48 hours prior to start of tx. Tx is a topical solution"
   },
   {"name": "Scabies",
   "symptoms": ["aches", "burrows", "Lesions","swelling"],
