@@ -102,7 +102,7 @@
       <div class="card">
   <div class="card-body">
     <h3 class="card-title">What are your symptoms?</h3>
-      <form action="php/get_diagnose_form.php" method="POST">
+      <form action="get_diagnose_form.php" method="POST">
         <div class="symptoms-form"></div>
 
 <button type="submit" class="pure-material-button-contained">Submit</button>

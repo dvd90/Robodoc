@@ -12,7 +12,7 @@
 
 
         $result = mysqli_query($connection , $query);
-        $row    = mysqli_fetch_array($result);
+        $row = mysqli_fetch_array($result);
 
 
         if(is_array($row)) {
@@ -26,6 +26,7 @@
           $_SESSION["user_id"] = NULL;
           header('Location: index.php');
         }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,24 +96,28 @@
     <div class="row justify-content-md-center">
     <div class="form-card-sign-up col col-md-6 col-sm-12">
       <h1 class="title-card">Sign-Up</h1>
-      <form class="sign-up-form">
+      <form class="sign-up-form" method="post" action="sign_up_db.php">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+      <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Password">
     </div>
   </div>
   <div class="form-group">
     <label for="inputName">Name</label>
-    <input type="text" class="form-control" id="inputName"  placeholder="Full Name">
+    <input type="text" class="form-control" id="inputName" name="name" placeholder="Full Name">
+  </div>
+    <div class="form-group">
+    <label for="inputPhone">Phone Number</label>
+    <input type="text" class="form-control" id="inputPhone" name="phone" placeholder="Phone Number">
   </div>
   <div class="form-group">
     <label for="inputAddress2">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="Full Address">
+    <input type="text" class="form-control" id="inputAddress" name="address" placeholder="Full Address">
   </div>
   <button type="submit" class="pure-material-button-contained">Sign in</button>
 </form>

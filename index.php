@@ -26,6 +26,10 @@
           $_SESSION["user_id"] = NULL;
           header('Location: index.php');
         }
+        if(!empty($_GET["new_user"])){
+          $_SESSION["user_id"] = $_GET["new_user"];
+        }
+
 ?>
 
 <!DOCTYPE html>
