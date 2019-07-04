@@ -113,6 +113,11 @@
                       <h3 class='card-title'>$desease_name</h3>
                       <h5 class='card-text'>$desease_spread</h5>
                       <p class='card-text'><small class='text-muted'>$desease_prevention</small></p>
+                        <form method='post' action='connect_disease.php'>
+                        <button type=submit' name='disease' value='"
+                        .$desease_name
+                        ."' class='pure-material-button-contained'>Probably Contracted That!</button>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -124,6 +129,7 @@
       </div>
     </div>
 </main>
+
   </section>
     <div class="footer">
       <div class="footer-links">
