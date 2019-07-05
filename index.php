@@ -59,7 +59,11 @@
           </li>
           <?php
           if($_SESSION["user_id"]) {
-              $row  = getUser($_SESSION["user_id"]);
+              $query = "SELECT name FROM tbl_users_221 WHERE id='"
+              .$_SESSION["user_id"]
+              ."'";
+              $result = mysqli_query($connection , $query);
+              $row    = mysqli_fetch_array($result);
 
               echo '          <li class="nav-item">
             <a class="nav-link" href="diagnose_form.php">GET A DIAGNOSE</a>
