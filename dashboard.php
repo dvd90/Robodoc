@@ -17,7 +17,7 @@
 
         if(is_array($row)) {
             $_SESSION["user_id"] = $row['id'];
-            header('Location: index.php');
+            header('Location: dashboard.php');
         } else {
             $message = "Invalid Username or Password!";
         }
@@ -26,6 +26,10 @@
           $_SESSION["user_id"] = NULL;
           header('Location: index.php');
         }
+        if(!empty($_GET["new_user"])){
+          $_SESSION["user_id"] = $_GET["new_user"];
+        }
+
 ?>
 
 <!DOCTYPE html>
@@ -54,9 +58,7 @@
           <li class="nav-item active">
             <a class="nav-link" href="index.php"><i class="fas fa-home"></i></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="diagnose_form.php">GET A DIAGNOSE</a>
-          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="health_alert.php">HEALTH ALERTS</a>
           </li>
@@ -69,7 +71,10 @@
               $result = mysqli_query($connection , $query);
               $row    = mysqli_fetch_array($result);
 
-              echo '<li class="nav-item dropdown">
+              echo '<li class="nav-item">
+            <a class="nav-link" href="diagnose_form.php">GET A DIAGNOSE</a>
+          </li>
+              <li class="nav-item dropdown">
                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome '.$row["name"].'</a>
                                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <form method="post">
@@ -95,17 +100,74 @@
       </div>
     </nav>
     <!-- Navbar End-->
-    <main class= "main-landing">
-    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.ibb.co/2FWw8gr/199.jpg);">
-  <div class="container">
-  <h1 class="landing-title"> Robodoc app is officially here.</h1>
-    <p>To help you understand better your illneses.</p>
-    <a class="pure-material-button-contained" href="/Robodoc/sign_up.php">Try now</a>
-  </div>
-</div>
- 
-      
-        </main>
+    <main>
+    <section id="dashboard">
+      <div class="container dash-container">
+        <div class="row dash-row">
+          <div class="col">
+            <div class="card">
+              <div class="card-header">
+                Health related News
+              </div>
+              <div class="card-body text-center">
+                <iframe src="https://www.npr.org/player/embed/724468630/725139755" width="100%" height="215" frameborder="0" scrolling="no" title="NPR embedded audio player"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row dash-row">
+          <div class="col-md-6 col-sm-12 side-box">
+            <div class="card">
+              <div class="card-header">
+                Activity log
+              </div>
+              <div class="card-body">
+                <?php
+                  if($_SESSION["user_id"]) {
+
+
+
+                    echo '<h5 class="card-title">Hey '
+                    .
+                    '</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>';
+                  }else{
+                    echo '<h5 class="card-title">Please LOGIN</h5>
+                <p class="card-text">Start now and get your first diagnose...</p>
+                <a href="sign_up.php" class="pure-material-button-contained">SIGN UP</a>';
+                  }
+                 ?>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12 side-box">
+            <div class="card">
+              <div class="card-body card-logo">
+                <img src='https://i.ibb.co/kXhT79B/Image-9-1.png' class='card-img index-img'>
+                <a href="diagnose_form.php" class="pure-material-button-contained">Start your Diagnose</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row dash-row">
+          <div class="col">
+            <div class="card">
+              <canvas id="myChart"></canvas>
+              <!--               <div class="card-header">
+                Featured
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="pure-material-button-contained">Go somewhere</a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      </main>
+    </section>
       <div class="footer">
         <div class="footer-links">
           <a href="#"><i class="fab fa-github"></i></a>

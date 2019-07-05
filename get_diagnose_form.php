@@ -17,7 +17,7 @@
 
         if(is_array($row)) {
             $_SESSION["user_id"] = $row['id'];
-            header('Location: index.php');
+            header('Location: dashboard.php');
         } else {
             $message = "Invalid Username or Password!";
         }
@@ -51,7 +51,7 @@
       <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="index.php"><i class="fas fa-home"></i></a>
+            <a class="nav-link" href="dashboard.php"><i class="fas fa-home"></i></a>
           </li>
 
           <li class="nav-item">

@@ -24,4 +24,4 @@
         $row = mysqli_fetch_array($result);
     }
 
-    header('Location: index.php?new_user='.$row['id']);
+    header('Location: dashboard.php?new_user='.$row['id']);
