@@ -11,4 +11,4 @@
     $result = mysqli_query($connection , $query);
 
 
-    header('Location: index.php');
+    header('Location: dashboard.php');
