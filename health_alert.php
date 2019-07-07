@@ -20,6 +20,7 @@
             header('Location: dashboard.php');
         } else {
             $message = "Invalid Username or Password!";
+            header('Location: sign_in.php');
         }
         }
         if(!empty($_POST["sign_out"])){

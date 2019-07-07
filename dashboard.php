@@ -20,6 +20,7 @@
             header('Location: dashboard.php');
         } else {
             $message = "Invalid Username or Password!";
+            header('Location: sign_in.php');
         }
         }
         if(!empty($_POST["sign_out"])){
@@ -75,8 +76,8 @@
             <a class="nav-link" href="diagnose_form.php">GET A DIAGNOSE</a>
           </li>
               <li class="nav-item dropdown">
-                                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome '.$row["name"].'</a>
-                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome '.$row["name"].'</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <form method="post">
    <button type="submit" name="sign_out" value="sign_out" class="dropdown-item">Sign out</button>
 </form>
@@ -125,12 +126,29 @@
                 <?php
                   if($_SESSION["user_id"]) {
 
-
-
                     echo '<h5 class="card-title">Hey '
-                    .
-                    '</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>';
+                    .$row["name"].
+                    '</h5>';
+
+                    $q = "SELECT name FROM tbl_diseases_221 WHERE user_id='"
+                    .$_SESSION["user_id"]
+                    ."'";
+
+                    $r_dis = mysqli_query($connection , $q);
+                    $diseases  = mysqli_fetch_all($r_dis);
+                        if (!empty($diseases)){
+                        echo '<p class="card-text">Your last diagnosis: </p>';
+                        echo '<ul class="list-group">';
+                        foreach ($diseases as $d) {
+                          echo '<li class="list-group-item"><b>' .$d[0] .'</b></li>';
+                        }
+
+                        echo "</ul>";
+                      }else{
+                        echo '<p class="card-text">You have unfortunately no recent diagnosis.</p>';
+                      }
+
+
                   }else{
                     echo '<h5 class="card-title">Please LOGIN</h5>
                 <p class="card-text">Start now and get your first diagnose...</p>

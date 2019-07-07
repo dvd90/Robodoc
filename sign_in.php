@@ -29,7 +29,7 @@
         }
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato|Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="../includes/css/style.css">
+    <link rel="stylesheet" href="includes/css/style.css">
     <link rel="icon" href="includes/images/favicon.ico" type="image/x-icon">
     <title>Robodoc</title>
   </head>
@@ -60,14 +60,13 @@
           </li>
           <?php
           if($_SESSION["user_id"]) {
-
               $query = "SELECT name FROM tbl_users_221 WHERE id='"
               .$_SESSION["user_id"]
               ."'";
               $result = mysqli_query($connection , $query);
               $row    = mysqli_fetch_array($result);
 
-              echo '<li class="nav-item">
+              echo '          <li class="nav-item">
             <a class="nav-link" href="diagnose_form.php">GET A DIAGNOSE</a>
           </li>
               <li class="nav-item dropdown">
@@ -78,7 +77,10 @@
 </form>
                     </div>
                   </li>';
+
           } else {
+
+            // TODO: Fill the card when User
 
             echo '<li class="nav-item dropdown">
                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -95,55 +97,47 @@
       </div>
     </nav>
     <!-- Navbar End-->
-    <main>
-      <section id="desease">
+      <main>
         <div class="container">
-          <div class='row justify-content-md-center'>
-            <div class="col-md-8">
-              <?php
-              $desease_name = $_GET['name'];
-              $desease_spread = $_GET['spread'];
-              $desease_prevention = $_GET['prevention'];
-              echo "<div class='card card-desease'>
-                <div class='row no-gutters'>
-                  <div class='col-md-4'>
-                    <img src='https://i.ibb.co/kXhT79B/Image-9-1.png' class='card-img'>
-                  </div>
-                  <div class='col-md-8'>
-                    <div class='card-body'>
-                      <h3 class='card-title'>$desease_name</h3>
-                      <h5 class='card-text'>$desease_spread</h5>
-                      <p class='card-text'><small class='text-muted'>$desease_prevention</small></p>
-                        <form method='post' action='connect_disease.php'>
-                        <button type=submit' name='disease' value='"
-                        .$desease_name
-                        ."' class='pure-material-button-contained'>Probably Contracted That!</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>";
-              ?>
-            </div>
+          <div class="row justify-content-md-center">
+            <div class="col-md-6 col-sm-12">
+        <div id="signin" class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Login</h5>
+          </div>
+          <div class="modal-body">
+             <form method="post">
+                <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" name="loginMail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="loginPass" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <button type="submit" class="pure-material-button-contained">Login</button>
+              <a href="sign_up.php">Sign-up</a>
+          <div class="error-message"><?php if(isset($message)) { echo $message; } ?></div>
+
+            </form>
           </div>
         </div>
+        </div>
+</div>
+</div>
+        </main>
+      <div class="footer">
+        <div class="footer-links">
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="footer-copyright">
+          <i class="fas fa-heart"></i> Shenkar
+        </div>
       </div>
-    </div>
-</main>
-
-  </section>
-    <div class="footer">
-      <div class="footer-links">
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-      </div>
-      <div class="footer-copyright">
-        <i class="fas fa-heart"></i> Shenkar
-      </div>
-    </div>
     <!-- Modal -->
     <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -173,12 +167,14 @@
         </div>
       </div>
     </div>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="includes/js/main.js"></script>
+  </body>
 </html>
 <?php
 //close DB connection
