@@ -136,12 +136,20 @@
                     ."'";
 
                     $r_dis = mysqli_query($connection , $q);
-                    $diseases  = mysqli_fetch_all($r_dis);
+                    // $diseases  = mysqli_fetch_all($r_dis);
+
+                    $diseases = [];
+                    while ($row = $r_dis->fetch_assoc()) {
+                        $diseases [] = $row;
+                    }
+
+                    // var_dump($diseases);
+
                         if (!empty($diseases)){
                         echo '<p class="card-text">Your last diagnosis: </p>';
                         echo '<ul class="list-group">';
                         foreach ($diseases as $d) {
-                          echo '<li class="list-group-item"><b>' .$d[0] .'</b></li>';
+                          echo '<li class="list-group-item"><b>' .$d['name'] .'</b></li>';
                         }
 
                         echo "</ul>";
