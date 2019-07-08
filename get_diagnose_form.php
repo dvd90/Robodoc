@@ -70,6 +70,7 @@
               echo '<li class="nav-item dropdown">
                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome '.$row["name"].'</a>
                                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                     <a class="dropdown-item" href="edit.php">Edit your profile</a>
                     <form method="post">
    <button type="submit" name="sign_out" value="sign_out" class="dropdown-item">Sign out</button>
 </form>
