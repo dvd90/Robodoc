@@ -17,9 +17,10 @@
 
         if(is_array($row)) {
             $_SESSION["user_id"] = $row['id'];
+            $_SESSION['message'] = NULL;
             header('Location: dashboard.php');
         } else {
-            $message = "Invalid Username or Password!";
+            $_SESSION['message'] = "Invalid Username or Password!";
             header('Location: sign_in.php');
         }
         }
@@ -117,7 +118,7 @@
               </div>
               <button type="submit" class="pure-material-button-contained">Login</button>
               <a href="sign_up.php">Sign-up</a>
-          <div class="error-message"><?php if(isset($message)) { echo $message; } ?></div>
+          <div class="error-message"><?php if(isset($_SESSION['message'])) { echo $_SESSION['message']; } ?></div>
 
             </form>
           </div>

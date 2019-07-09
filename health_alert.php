@@ -101,11 +101,11 @@
         <main>
           <div class="container">
             <div class='row justify-content-md-center'>
-              <div class="col">
+              <div class="col-sm-12 col-md-8">
             <h1 class="title-ha">Health Alert</h1>
 
 
-            <table class="table table-hover" >
+            <table class="table table-responsive table-hover" >
             <thead class="thead-light">
             <tr>
             <th scope="col">Alerts </th>
