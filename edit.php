@@ -122,6 +122,8 @@
     <input type="text" class="form-control" id="inputAddress" name="editAddress" value="'.$row['address'] .'">
   </div>
   <button type="submit" class="pure-material-button-contained">Edit</button>
+  <a href="edit_post.php?delete=true" class="btn-danger">Delete Account</button>
+
 </form>';
 ?>
     </div>
