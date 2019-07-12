@@ -97,6 +97,9 @@
     <div class="container">
     <div class="row justify-content-md-center">
     <div class="form-card-sign-up col col-md-6 col-sm-12">
+    <button type="button" class="close" aria-label="Close"> 
+  <a href="dashboard.php"> <span aria-hidden="true">&times;</span>  </a>
+</button>
       <h1 class="title-card">Edit your profile</h1>
       <form class="sign-up-form" method="post" action="edit_post.php">
   <div class="form-row">
@@ -122,7 +125,7 @@
     <input type="text" class="form-control" id="inputAddress" name="editAddress" value="'.$row['address'] .'">
   </div>
   <button type="submit" class="pure-material-button-contained">Edit</button>
-  <a href="edit_post.php?delete=true" class="btn-danger">Delete Account</button>
+  <a href="edit_post.php?delete=true" class="btn btn-danger">Delete Account</a>
 
 </form>';
 ?>

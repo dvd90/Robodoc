@@ -99,7 +99,7 @@
     </nav>
     <!-- Navbar End-->
     <main class= "main-landing">
-    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.ibb.co/2FWw8gr/199.jpg);">
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.ibb.co/TWkj3nJ/199-min.jpg);">
   <div class="container">
   <h1 class="landing-title"> Robodoc app is officially here.</h1>
     <p>To help you understand better your illneses.</p>

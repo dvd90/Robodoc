@@ -100,6 +100,9 @@
     <div class="col-md-6 col-sm-12">
       <div class="card">
   <div class="card-body">
+  <button type="button" class="close" aria-label="Close"> 
+  <a href="dashboard.php"> <span aria-hidden="true">&times;</span>  </a>
+</button>
     <h3 class="card-title">What are your symptoms?</h3>
       <form action="get_diagnose_form.php" method="POST">
         <div class="symptoms-form"></div>
