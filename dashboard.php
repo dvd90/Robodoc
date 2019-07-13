@@ -72,6 +72,12 @@
               $result = mysqli_query($connection , $query);
               $row    = mysqli_fetch_array($result);
 
+              if($row["name"] == 'Administrator'){
+                echo '          <li class="nav-item">
+            <a class="nav-link" href="admin_panel.php">ADMIN PAGE</a>
+          </li>';
+              }
+
               echo '<li class="nav-item">
             <a class="nav-link" href="diagnose_form.php">GET A DIAGNOSE</a>
           </li>

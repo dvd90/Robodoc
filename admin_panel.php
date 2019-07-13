@@ -104,7 +104,43 @@
     <!-- Navbar End-->
     <main>
     <section id="admin_panel">
-Users panel
+      <h1>Admin Panel</h1>
+    <div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-sm-12 col-md-5">
+      <div class="card-trip">
+<a href="admin_panel_users.php">
+  <img src="https://i.ibb.co/BfYq77c/Users.jpg">
+</a>
+  <div class="card-trip-infos">
+    <div>
+      <h2>Users Panel</h2>
+      <p>Show all Users</p>
+    </div>
+  </div>
+</div>
+</div>
+    <div class="col-sm-12 col-md-5">
+    <div class="card-trip">
+<a href="admin_panel_diagnoses.php">
+  <img src="https://i.ibb.co/j31jfGS/Diagnose.png">
+</a>
+  <div class="card-trip-infos">
+    <div>
+      <h2>Diagnoses Panel</h2>
+      <p>Show all diagnoses</p>
+    </div>
+  </div>
+</div>
+</div>
+    </div>
+  </div>
+
+
+
+
+
+<!-- Users panel
 <ul>
     <li><a href="admin_panel_users.php"><strong>All Users</strong></a></li>
 
@@ -113,10 +149,10 @@ Users panel
 Diagnoses panel
 <ul>
     <li><a href="admin_panel_diagnoses.php"><strong>All Diagnoses </strong></a></li>
-</ul>
+</ul> -->
 
-      </main>
     </section>
+      </main>
       <div class="footer">
         <div class="footer-links">
           <a href="#"><i class="fab fa-github"></i></a>

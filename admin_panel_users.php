@@ -105,22 +105,11 @@
     <!-- side bar start -->
     <main>
     <section id="users">
-    Users panel
-<ul>
-    <li><a href="admin_panel_users.php"><strong>All Users</strong></a></li>
-
-</ul>
-
-Diagnoses panel
-<ul>
-    <li><a href="admin_panel_diagnoses.php"><strong>All Diagnoses </strong></a></li>
-</ul>
-
-    <!-- side bar end -->
-
-    <h2>Edit Users</h2>
-
-<table class="table table-hover table-striped">
+      <h1>Manage Users</h1>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col">
+<table class="table table-hover table-striped table-responsive user-panel">
   <thead>
     <tr>
       <th>ID</th>
@@ -133,10 +122,11 @@ Diagnoses panel
     </tr>
   </thead>
   <tbody>
+
   <?php
          $query = "SELECT * FROM tbl_users_221";
          $result = mysqli_query($connection , $query);
-         while($row = mysqli_fetch_assoc($result)) 
+         while($row = mysqli_fetch_assoc($result))
          {
          echo'
     <tr>
@@ -144,16 +134,18 @@ Diagnoses panel
     <td> '.$row["name"].' </td>
     <td> '.$row["phone"].' </td>
     <td> '.$row["email"].' </td>
-    <td> '.$row["address"].' </td> 
+    <td> '.$row["address"].' </td>
     <td><a href="admin_panel_user_edit.php?id='.$row["id"].'">Edit</a></td>
 
     </tr>
     ';}
-      echo'
+?>
    </tr>
   </tbody>
-</table> ';
-?>
+</table>
+</div>
+</div>
+</div>
       </main>
     </section>
       <div class="footer">

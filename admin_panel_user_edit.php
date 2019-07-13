@@ -102,25 +102,11 @@
       </div>
     </nav>
     <!-- Navbar End-->
-    <!-- side bar start -->
     <main>
-    <section id="user_edit">
+    <section id="user-edit-admin">
+      <div class="container">
 
-    Users panel
-<ul>
-    <li><a href="admin_panel_users.php"><strong>All Users</strong></a></li>
 
-</ul>
-
-Diagnoses panel
-<ul>
-    <li><a href="admin_panel_diagnoses.php"><strong>All Diagnoses </strong></a></li>
-</ul>
-
-    <!-- side bar end -->
-
-    <h2>Edit Users</h2>
-    
     <?php
             $query = "SELECT * FROM tbl_users_221 WHERE id='"
             .$_GET["id"]
@@ -128,13 +114,12 @@ Diagnoses panel
             $result = mysqli_query($connection , $query);
             $row1=mysqli_fetch_array($result);
 
-            echo' 
-            <form>
-              <h1 class="title-card">Edit your profile</h1>
+            echo'
+              <h1>Edit your profile</h1>
               <form class="sign-up-form" method="post" action="edit_post.php">
            <div class="form-group">
             <label for="inputName">ID Name</label>
-            <input type="text" class="form-control" id="inputid" name="editID" value="'.$row1['id'] .'">
+            <input readonly type="text" class="form-control" id="inputid" name="editID" value="'.$row1['id'] .'">
           </div>
             <div class="form-group">
             <label for="inputPhone">User Name ID</label>
@@ -160,6 +145,7 @@ Diagnoses panel
           <a href="edit_post.php?delete=true" class="btn btn-danger">Delete Account</a>
         </form>';
 ?>
+</div>
 </section>
       </main>
       <div class="footer">
