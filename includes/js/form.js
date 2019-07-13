@@ -12,4 +12,3 @@ const symptoms = ["bleeding", "sore throat", "fatigue" ,
       );
   });
 });
-

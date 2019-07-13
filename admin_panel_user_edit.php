@@ -115,14 +115,17 @@
             $row1=mysqli_fetch_array($result);
 
             echo'
+            <div class="back_to_admin_panel">
+            <button class="pure-material-button-contained" onclick="history.go(-1);"> Back to user management </button> 
+          </div>
               <h1>Edit your profile</h1>
               <form class="sign-up-form" method="post" action="edit_post.php">
            <div class="form-group">
-            <label for="inputName">ID Name</label>
+            <label for="inputName">ID</label>
             <input readonly type="text" class="form-control" id="inputid" name="editID" value="'.$row1['id'] .'">
           </div>
             <div class="form-group">
-            <label for="inputPhone">User Name ID</label>
+            <label for="inputPhone">User Name</label>
             <input type="text" class="form-control" id="inputName" name="editName" value="'.$row1['name'] .'">
           </div>
           <div class="form-group">

@@ -143,6 +143,7 @@ main {
   padding: 50px;
   background: #F4F4F4;
   border-radius: 10px;
+  margin-top:5vh;
 }
 
 /*pure-btn*/
@@ -372,3 +373,13 @@ form .btn-danger
   width: 40px;
 }
 
+
+.back_to_admin_panel{
+  margin-top: 5vh;
+  margin-bottom: 3vh;
+  text-align:center;
+}
+
+.col_diagnose{
+  height: -webkit-fill-available;
+}

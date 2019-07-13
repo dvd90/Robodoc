@@ -102,26 +102,18 @@
       </div>
     </nav>
     <!-- Navbar End-->
-    <!-- side bar start -->
     <main>
     <section id="users">
-    Users panel
-<ul>
-    <li><a href="admin_panel_users.php"><strong>All Users</strong></a></li>
+    <div class="back_to_admin_panel">
+  <button class="pure-material-button-contained"onclick="window.location.href='admin_panel.php'"> Back to admin panel </button> 
+</div>
+    <h1>Diagnoses Management</h1>
 
-</ul>
-
-Diagnoses panel
-<ul>
-    <li><a href="admin_panel_diagnoses.php"><strong>All Diagnoses </strong></a></li>
-</ul>
-
-    <!-- side bar end -->
-
-    <h2>Edit Users</h2>
-
-<table class="table table-hover table-striped">
-  <thead>
+    <div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col_diagnose">
+<table class="table table-hover table-striped table-responsive user-panel"> 
+   <thead>
     <tr>
       <th>ID</th>
       <th>Name</th>
@@ -148,7 +140,10 @@ Diagnoses panel
       echo'
    </tr>
   </tbody>
-</table> ';
+</table> 
+</div>
+</div>
+</div>';
 ?>
       </main>
     </section>
