@@ -30,8 +30,8 @@
         if(!empty($_GET["new_user"])){
           $_SESSION["user_id"] = $_GET["new_user"];
         }
-
 ?>
+<!--  -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -72,12 +72,6 @@
               $result = mysqli_query($connection , $query);
               $row    = mysqli_fetch_array($result);
 
-              if($row["name"] == 'Administrator'){
-                echo '          <li class="nav-item">
-            <a class="nav-link" href="admin_panel.php">ADMIN PAGE</a>
-          </li>';
-              }
-
               echo '<li class="nav-item">
             <a class="nav-link" href="diagnose_form.php">GET A DIAGNOSE</a>
           </li>
@@ -109,98 +103,51 @@
     </nav>
     <!-- Navbar End-->
     <main>
-    <section id="dashboard">
-      <div class="container dash-container">
-        <div class="row dash-row">
-          <div class="col">
-            <div class="card">
-              <div class="card-header">
-                Health related News
-              </div>
-              <div class="card-body text-center">
-                <iframe src="https://www.npr.org/player/embed/724468630/725139755" width="100%" height="215" frameborder="0" scrolling="no" title="NPR embedded audio player"></iframe>
-              </div>
-            </div>
+    <section id="user-edit-admin">
+      <div class="container">
+
+
+    <?php
+            $query = "SELECT * FROM tbl_users_221 WHERE id='"
+            .$_GET["id"]
+            ."'";
+            $result = mysqli_query($connection , $query);
+            $row1=mysqli_fetch_array($result);
+
+            echo'
+              <h1>Edit your profile</h1>
+              <form class="sign-up-form" method="post" action="edit_post.php">
+           <div class="form-group">
+            <label for="inputName">ID Name</label>
+            <input readonly type="text" class="form-control" id="inputid" name="editID" value="'.$row1['id'] .'">
           </div>
+            <div class="form-group">
+            <label for="inputPhone">User Name ID</label>
+            <input type="text" class="form-control" id="inputName" name="editName" value="'.$row1['name'] .'">
+          </div>
+          <div class="form-group">
+            <label for="inputAddress2">Email Address</label>
+            <input type="text" class="form-control" id="inputEmail" name="editEmail" value="'.$row1['email'] .'">
+          </div>
+          <div class="form-group">
+          <label for="inputAddress2">Password</label>
+          <input type="text" class="form-control" id="inputPassword" name="editPassword" value="'.$row1['password'] .'">
         </div>
-        <div class="row dash-row">
-          <div class="col-md-6 col-sm-12 side-box">
-            <div class="card">
-              <div class="card-header">
-                Activity log
-              </div>
-              <div class="card-body">
-                <?php
-                  if($_SESSION["user_id"]) {
-
-                    echo '<h5 class="card-title">Hey '
-                    .$row["name"].
-                    '</h5>';
-
-                    $q = "SELECT name FROM tbl_diseases_221 WHERE user_id='"
-                    .$_SESSION["user_id"]
-                    ."'";
-
-                    $r_dis = mysqli_query($connection , $q);
-                    // $diseases  = mysqli_fetch_all($r_dis);
-
-                    $diseases = [];
-                    while ($row = $r_dis->fetch_assoc()) {
-                        $diseases [] = $row;
-                    }
-
-                    // var_dump($diseases);
-
-                        if (!empty($diseases)){
-                        echo '<p class="card-text">Your last diagnosis: </p>';
-                        echo '<ul class="list-group">';
-                        foreach ($diseases as $d) {
-                          echo '<li class="list-group-item"><b>' .$d['name'] .'</b></li>';
-                        }
-
-                        echo "</ul>";
-                      }else{
-                        echo '<p class="card-text">You have unfortunately no recent diagnosis.</p>';
-                      }
-
-
-                  }else{
-                    echo '<h5 class="card-title">Please LOGIN</h5>
-                <p class="card-text">Start now and get your first diagnose...</p>
-                <a href="sign_up.php" class="pure-material-button-contained">SIGN UP</a>';
-                  }
-                 ?>
-
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-sm-12 side-box">
-            <div class="card">
-              <div class="card-body card-logo">
-                <img src='https://i.ibb.co/kXhT79B/Image-9-1.png' class='card-img index-img'>
-                <a href="diagnose_form.php" class="pure-material-button-contained">Start your Diagnose</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row dash-row">
-          <div class="col">
-            <div class="card">
-              <canvas id="myChart"></canvas>
-              <!--               <div class="card-header">
-                Featured
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="pure-material-button-contained">Go somewhere</a>
-              </div> -->
-            </div>
-          </div>
-        </div>
+        <div class="form-group">
+        <label for="inputAddress2">Phone</label>
+        <input type="text" class="form-control" id="inputPhone" name="editPhone" value="'.$row1['phone'] .'">
       </div>
+      <div class="form-group">
+      <label for="inputAddress2">User Address</label>
+      <input type="text" class="form-control" id="inputAddress" name="editAddress" value="'.$row1['address'] .'">
+    </div>
+          <button type="submit" class="pure-material-button-contained">Edit</button>
+          <a href="edit_post.php?delete=true" class="btn btn-danger">Delete Account</a>
+        </form>';
+?>
+</div>
+</section>
       </main>
-    </section>
       <div class="footer">
         <div class="footer-links">
           <a href="#"><i class="fab fa-github"></i></a>

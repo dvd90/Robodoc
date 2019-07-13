@@ -30,8 +30,8 @@
         if(!empty($_GET["new_user"])){
           $_SESSION["user_id"] = $_GET["new_user"];
         }
-
 ?>
+<!--  -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -72,12 +72,6 @@
               $result = mysqli_query($connection , $query);
               $row    = mysqli_fetch_array($result);
 
-              if($row["name"] == 'Administrator'){
-                echo '          <li class="nav-item">
-            <a class="nav-link" href="admin_panel.php">ADMIN PAGE</a>
-          </li>';
-              }
-
               echo '<li class="nav-item">
             <a class="nav-link" href="diagnose_form.php">GET A DIAGNOSE</a>
           </li>
@@ -108,97 +102,50 @@
       </div>
     </nav>
     <!-- Navbar End-->
+    <!-- side bar start -->
     <main>
-    <section id="dashboard">
-      <div class="container dash-container">
-        <div class="row dash-row">
-          <div class="col">
-            <div class="card">
-              <div class="card-header">
-                Health related News
-              </div>
-              <div class="card-body text-center">
-                <iframe src="https://www.npr.org/player/embed/724468630/725139755" width="100%" height="215" frameborder="0" scrolling="no" title="NPR embedded audio player"></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row dash-row">
-          <div class="col-md-6 col-sm-12 side-box">
-            <div class="card">
-              <div class="card-header">
-                Activity log
-              </div>
-              <div class="card-body">
-                <?php
-                  if($_SESSION["user_id"]) {
+    <section id="users">
+      <h1>Manage Users</h1>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col">
+<table class="table table-hover table-striped table-responsive user-panel">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email Address</th>
+      <th>Location</th>
+      <th>Edit</th>
 
-                    echo '<h5 class="card-title">Hey '
-                    .$row["name"].
-                    '</h5>';
+    </tr>
+  </thead>
+  <tbody>
 
-                    $q = "SELECT name FROM tbl_diseases_221 WHERE user_id='"
-                    .$_SESSION["user_id"]
-                    ."'";
+  <?php
+         $query = "SELECT * FROM tbl_users_221";
+         $result = mysqli_query($connection , $query);
+         while($row = mysqli_fetch_assoc($result))
+         {
+         echo'
+    <tr>
+    <td> '.$row["id"].' </td>
+    <td> '.$row["name"].' </td>
+    <td> '.$row["phone"].' </td>
+    <td> '.$row["email"].' </td>
+    <td> '.$row["address"].' </td>
+    <td><a href="admin_panel_user_edit.php?id='.$row["id"].'">Edit</a></td>
 
-                    $r_dis = mysqli_query($connection , $q);
-                    // $diseases  = mysqli_fetch_all($r_dis);
-
-                    $diseases = [];
-                    while ($row = $r_dis->fetch_assoc()) {
-                        $diseases [] = $row;
-                    }
-
-                    // var_dump($diseases);
-
-                        if (!empty($diseases)){
-                        echo '<p class="card-text">Your last diagnosis: </p>';
-                        echo '<ul class="list-group">';
-                        foreach ($diseases as $d) {
-                          echo '<li class="list-group-item"><b>' .$d['name'] .'</b></li>';
-                        }
-
-                        echo "</ul>";
-                      }else{
-                        echo '<p class="card-text">You have unfortunately no recent diagnosis.</p>';
-                      }
-
-
-                  }else{
-                    echo '<h5 class="card-title">Please LOGIN</h5>
-                <p class="card-text">Start now and get your first diagnose...</p>
-                <a href="sign_up.php" class="pure-material-button-contained">SIGN UP</a>';
-                  }
-                 ?>
-
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-sm-12 side-box">
-            <div class="card">
-              <div class="card-body card-logo">
-                <img src='https://i.ibb.co/kXhT79B/Image-9-1.png' class='card-img index-img'>
-                <a href="diagnose_form.php" class="pure-material-button-contained">Start your Diagnose</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row dash-row">
-          <div class="col">
-            <div class="card">
-              <canvas id="myChart"></canvas>
-              <!--               <div class="card-header">
-                Featured
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="pure-material-button-contained">Go somewhere</a>
-              </div> -->
-            </div>
-          </div>
-        </div>
-      </div>
+    </tr>
+    ';}
+?>
+   </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
       </main>
     </section>
       <div class="footer">

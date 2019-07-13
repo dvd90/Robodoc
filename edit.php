@@ -66,7 +66,6 @@
               ."'";
               $result = mysqli_query($connection , $query);
               $row    = mysqli_fetch_array($result);
-
               echo '<li class="nav-item">
                     <a class="nav-link nav-name">Welcome '.$row["name"].'</a>
                     </li>';
@@ -97,7 +96,7 @@
     <div class="container">
     <div class="row justify-content-md-center">
     <div class="form-card-sign-up col col-md-6 col-sm-12">
-    <button type="button" class="close" aria-label="Close"> 
+    <button type="button" class="close" aria-label="Close">
   <a href="dashboard.php"> <span aria-hidden="true">&times;</span>  </a>
 </button>
       <h1 class="title-card">Edit your profile</h1>
@@ -105,7 +104,7 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" name="editEmail" value="'.$row['email'] .'">
+      <input type="email" class="form-control" id="inputEmail4" name="editEmail" value="'.$row["email"] .'">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Password</label>

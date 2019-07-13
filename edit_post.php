@@ -12,7 +12,28 @@
         $result = mysqli_query($connection , $query);
 
         $_SESSION['user_id'] = NULL;
-        header('Location: index.php'); 
+        header('Location: index.php');
+    }
+
+    if($_SESSION['user_id'] == 52){
+      $query  = "UPDATE tbl_users_221 SET email='"
+      . $_POST["editEmail"]
+      . "', password='"
+      . $_POST["editPassword"]
+      . "', name='"
+      . $_POST["editName"]
+      . "', phone='"
+      . $_POST["editPhone"]
+      . "', address='"
+      . $_POST["editAddress"]
+      . "' WHERE id='"
+      . $_POST['editID']
+      . "'";
+
+        $result = mysqli_query($connection , $query);
+        header('Location: admin_panel_users.php');
+
+
     }else{
 
         $query  = "UPDATE tbl_users_221 SET email='"

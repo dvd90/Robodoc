@@ -30,8 +30,8 @@
         if(!empty($_GET["new_user"])){
           $_SESSION["user_id"] = $_GET["new_user"];
         }
-
 ?>
+<!--  -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -72,19 +72,13 @@
               $result = mysqli_query($connection , $query);
               $row    = mysqli_fetch_array($result);
 
-              if($row["name"] == 'Administrator'){
-                echo '          <li class="nav-item">
-            <a class="nav-link" href="admin_panel.php">ADMIN PAGE</a>
-          </li>';
-              }
-
               echo '<li class="nav-item">
             <a class="nav-link" href="diagnose_form.php">GET A DIAGNOSE</a>
           </li>
               <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome '.$row["name"].'</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="edit.php">Edit your profile</a>
+                <a class="dropdown-item" href="edit.php">Edit a Diagnose</a>
                     <form method="post">
    <button type="submit" name="sign_out" value="sign_out" class="dropdown-item">Sign out</button>
 </form>
@@ -108,97 +102,52 @@
       </div>
     </nav>
     <!-- Navbar End-->
+    <!-- side bar start -->
     <main>
-    <section id="dashboard">
-      <div class="container dash-container">
-        <div class="row dash-row">
-          <div class="col">
-            <div class="card">
-              <div class="card-header">
-                Health related News
-              </div>
-              <div class="card-body text-center">
-                <iframe src="https://www.npr.org/player/embed/724468630/725139755" width="100%" height="215" frameborder="0" scrolling="no" title="NPR embedded audio player"></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row dash-row">
-          <div class="col-md-6 col-sm-12 side-box">
-            <div class="card">
-              <div class="card-header">
-                Activity log
-              </div>
-              <div class="card-body">
-                <?php
-                  if($_SESSION["user_id"]) {
+    <section id="user_edit">
 
-                    echo '<h5 class="card-title">Hey '
-                    .$row["name"].
-                    '</h5>';
+    Users panel
+<ul>
+    <li><a href="admin_panel_users.php"><strong>All Users</strong></a></li>
 
-                    $q = "SELECT name FROM tbl_diseases_221 WHERE user_id='"
-                    .$_SESSION["user_id"]
-                    ."'";
+</ul>
 
-                    $r_dis = mysqli_query($connection , $q);
-                    // $diseases  = mysqli_fetch_all($r_dis);
+Diagnoses panel
+<ul>
+    <li><a href="admin_panel_diagnoses.php"><strong>All Diagnoses </strong></a></li>
+</ul>
 
-                    $diseases = [];
-                    while ($row = $r_dis->fetch_assoc()) {
-                        $diseases [] = $row;
-                    }
+    <!-- side bar end -->
 
-                    // var_dump($diseases);
+    <h2>Edit Users</h2>
+    
+    <?php
+            $query = "SELECT * FROM tbl_diseases_221 WHERE id='"
+            .$_GET["id"]
+            ."'";
+            $result = mysqli_query($connection , $query);
+            $row1=mysqli_fetch_array($result);
+    echo' 
+    <form>
+      <h1 class="title-card">Edit your profile</h1>
+      <form class="sign-up-form" method="post" action="edit_post.php">
+   <div class="form-group">
+    <label for="inputName">Diagnose Name</label>
+    <input type="text" class="form-control" id="inputName" name="editName" value="'.$row1['name'] .'">
+  </div>
+    <div class="form-group">
+    <label for="inputPhone">Diagnose ID</label>
+    <input type="text" class="form-control" id="inputID" name="editPhone" value="'.$row1['id'] .'">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">User ID</label>
+    <input type="text" class="form-control" id="inputUserID" name="editAddress" value="'.$row1['user_id'] .'">
+  </div>
+  <button type="submit" class="pure-material-button-contained">Edit</button>
+  <a href="edit_post.php?delete=true" class="btn btn-danger">Delete Account</a>
+</form>';
+?>
 
-                        if (!empty($diseases)){
-                        echo '<p class="card-text">Your last diagnosis: </p>';
-                        echo '<ul class="list-group">';
-                        foreach ($diseases as $d) {
-                          echo '<li class="list-group-item"><b>' .$d['name'] .'</b></li>';
-                        }
-
-                        echo "</ul>";
-                      }else{
-                        echo '<p class="card-text">You have unfortunately no recent diagnosis.</p>';
-                      }
-
-
-                  }else{
-                    echo '<h5 class="card-title">Please LOGIN</h5>
-                <p class="card-text">Start now and get your first diagnose...</p>
-                <a href="sign_up.php" class="pure-material-button-contained">SIGN UP</a>';
-                  }
-                 ?>
-
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-sm-12 side-box">
-            <div class="card">
-              <div class="card-body card-logo">
-                <img src='https://i.ibb.co/kXhT79B/Image-9-1.png' class='card-img index-img'>
-                <a href="diagnose_form.php" class="pure-material-button-contained">Start your Diagnose</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row dash-row">
-          <div class="col">
-            <div class="card">
-              <canvas id="myChart"></canvas>
-              <!--               <div class="card-header">
-                Featured
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="pure-material-button-contained">Go somewhere</a>
-              </div> -->
-            </div>
-          </div>
-        </div>
-      </div>
       </main>
     </section>
       <div class="footer">
