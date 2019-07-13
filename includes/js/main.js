@@ -6,7 +6,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: ['Jan-Feb', 'Mar-Apr', 'May-Jun', 'Jul-Aug', 'Sep-Oct', 'Nov-Dec'],
         datasets: [{
-            label: 'Overall Mortality in TEL AVIV 2019',
+            label: 'Overall Morbidity in TEL AVIV 2019',
             data: [5, 2, 3, 1, 1, 1],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',

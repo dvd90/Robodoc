@@ -13,7 +13,24 @@
 
         $_SESSION['user_id'] = NULL;
         header('Location: index.php'); 
-    }else{
+    }
+    if( $_SESSION['user_id'] !=  $_POST['user_id']){
+    $query  = "UPDATE tbl_users_221 SET email='"
+    . $_POST["editEmail"]
+    . "', password='"
+    . $_POST["editPassword"]
+    . "', name='"
+    . $_POST["editName"]
+    . "', phone='"
+    . $_POST["editPhone"]
+    . "', address='"
+    . $_POST["editAddress"]
+    . "' WHERE id='"
+    . $_POST['user_id']
+    . "'";
+    header('Location: admin_panel_users.php');
+    }
+    else{
 
         $query  = "UPDATE tbl_users_221 SET email='"
         . $_POST["editEmail"]

@@ -12,7 +12,7 @@
 
 
         $result = mysqli_query($connection , $query);
-        $row = mysqli_fetch_array($result);
+        $row    = mysqli_fetch_array($result);
 
 
         if(is_array($row)) {
@@ -27,8 +27,12 @@
           $_SESSION["user_id"] = NULL;
           header('Location: index.php');
         }
-
+        if(!empty($_GET["new_user"])){
+          $_SESSION["user_id"] = $_GET["new_user"];
+        }
 ?>
+<!--  -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -53,23 +57,33 @@
       <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="dashboard.php"><i class="fas fa-home"></i></a>
+            <a class="nav-link" href="index.php"><i class="fas fa-home"></i></a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" href="health_alert.php">HEALTH ALERTS</a>
           </li>
           <?php
           if($_SESSION["user_id"]) {
 
-              $query = "SELECT * FROM tbl_users_221 WHERE id='"
+              $query = "SELECT name FROM tbl_users_221 WHERE id='"
               .$_SESSION["user_id"]
               ."'";
               $result = mysqli_query($connection , $query);
               $row    = mysqli_fetch_array($result);
-var_dump($row);
+
               echo '<li class="nav-item">
-                    <a class="nav-link nav-name">Welcome '.$row["name"].'</a>
-                    </li>';
+            <a class="nav-link" href="diagnose_form.php">GET A DIAGNOSE</a>
+          </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome '.$row["name"].'</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="edit.php">Edit your profile</a>
+                    <form method="post">
+   <button type="submit" name="sign_out" value="sign_out" class="dropdown-item">Sign out</button>
+</form>
+                    </div>
+                  </li>';
 
           } else {
 
@@ -88,51 +102,65 @@ var_dump($row);
       </div>
     </nav>
     <!-- Navbar End-->
+    <!-- side bar start -->
     <main>
-      <?php
+    <section id="user_edit">
 
-      // var_dump($row);
+    Users panel
+<ul>
+    <li><a href="admin_panel_users.php"><strong>All Users</strong></a></li>
 
-    echo '<section id="sign-up edit">
-    <div class="container">
-    <div class="row justify-content-md-center">
-    <div class="form-card-sign-up col col-md-6 col-sm-12">
-    <button type="button" class="close" aria-label="Close"> 
-  <a href="dashboard.php"> <span aria-hidden="true">&times;</span>  </a>
-</button>
-      <h1 class="title-card">Edit your profile</h1>
-      <form class="sign-up-form" method="post" action="edit_post.php">
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" name="editEmail" value="'.$row["email"] .'">
+</ul>
+
+Diagnoses panel
+<ul>
+    <li><a href="admin_panel_diagnoses.php"><strong>All Diagnoses </strong></a></li>
+</ul>
+
+    <!-- side bar end -->
+
+    <h2>Edit Users</h2>
+    
+    <?php
+            $query = "SELECT * FROM tbl_users_221 WHERE id='"
+            .$_GET["id"]
+            ."'";
+            $result = mysqli_query($connection , $query);
+            $row1=mysqli_fetch_array($result);
+
+            echo' 
+            <form>
+              <h1 class="title-card">Edit your profile</h1>
+              <form class="sign-up-form" method="post" action="edit_post.php">
+           <div class="form-group">
+            <label for="inputName">ID Name</label>
+            <input type="text" class="form-control" id="inputid" name="editID" value="'.$row1['id'] .'">
+          </div>
+            <div class="form-group">
+            <label for="inputPhone">User Name ID</label>
+            <input type="text" class="form-control" id="inputName" name="editName" value="'.$row1['name'] .'">
+          </div>
+          <div class="form-group">
+            <label for="inputAddress2">Email Address</label>
+            <input type="text" class="form-control" id="inputEmail" name="editEmail" value="'.$row1['email'] .'">
+          </div>
+          <div class="form-group">
+          <label for="inputAddress2">Password</label>
+          <input type="text" class="form-control" id="inputPassword" name="editPassword" value="'.$row1['password'] .'">
+        </div>
+        <div class="form-group">
+        <label for="inputAddress2">Phone</label>
+        <input type="text" class="form-control" id="inputPhone" name="editPhone" value="'.$row1['phone'] .'">
+      </div>
+      <div class="form-group">
+      <label for="inputAddress2">User Address</label>
+      <input type="text" class="form-control" id="inputAddress" name="editAddress" value="'.$row1['address'] .'">
     </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="text" class="form-control" id="inputPassword4" name="editPassword" value="'.$row['password'] .'">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputName">Name</label>
-    <input type="text" class="form-control" id="inputName" name="editName" value="'.$row['name'] .'">
-  </div>
-    <div class="form-group">
-    <label for="inputPhone">Phone Number</label>
-    <input type="text" class="form-control" id="inputPhone" name="editPhone" value="'.$row['phone'] .'">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Address</label>
-    <input type="text" class="form-control" id="inputAddress" name="editAddress" value="'.$row['address'] .'">
-  </div>
-  <button type="submit" class="pure-material-button-contained">Edit</button>
-  <a href="edit_post.php?delete=true" class="btn btn-danger">Delete Account</a>
-
-</form>';
+          <button type="submit" class="pure-material-button-contained">Edit</button>
+          <a href="edit_post.php?delete=true" class="btn btn-danger">Delete Account</a>
+        </form>';
 ?>
-    </div>
-  </div>
-    </div>
-    </section>
+</section>
       </main>
       <div class="footer">
         <div class="footer-links">
