@@ -288,8 +288,12 @@ main {
   margin-top: 12vh;
 }
 
-.btn-danger{
-  margin-right: 30PX;
+form .btn-danger
+{
+  float: right !important;
 }
-/*justify content
-dsfsdffdsf
+
+.back_to_symptoms{
+  text-align:center;
+  margin-bottom: 30px;
+}

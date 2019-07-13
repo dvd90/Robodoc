@@ -97,6 +97,10 @@
     <main>
     <section id="diagnose-result">
   <div class="container">
+  <div class="back_to_symptoms">
+  <button onclick="history.go(-1);"> Back to symptoms </button> 
+</div>
+
 <?php
 ini_set('display_errors', 'On');
 if (isset($_POST['chk_group'])) {
