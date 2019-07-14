@@ -178,7 +178,12 @@
             <div class="card">
               <div class="card-body card-logo">
                 <img src='https://i.ibb.co/kXhT79B/Image-9-1.png' class='card-img index-img'>
-                <a href="diagnose_form.php" class="pure-material-button-contained">Start your Diagnose</a>
+                <?php if($_SESSION["user_id"]){
+                  echo '<a href="diagnose_form.php" class="pure-material-button-contained">Start your Diagnose</a>';
+                }
+
+                ?>
+
               </div>
             </div>
           </div>
