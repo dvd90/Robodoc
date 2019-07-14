@@ -1,4 +1,3 @@
-
 <?php
     include 'db/db.php';
     include "db/config.php";
@@ -8,4 +7,5 @@
           . $_POST["disease"] . "', '"
           . $_SESSION["user_id"] . "')";
     $result = mysqli_query($connection , $query);
+
     header('Location: dashboard.php');
