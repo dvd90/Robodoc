@@ -103,7 +103,13 @@
   <div class="container">
   <h1 class="landing-title"> Robodoc app is officially here.</h1>
     <p>To help you understand better your illneses.</p>
-    <a class="pure-material-button-contained" href="sign_up.php">Try now</a>
+    <?php
+      if($_SESSION["user_id"]) {
+        echo '<a class="pure-material-button-contained" href="dashboard.php">Go to your Dashboard</a>';
+      }else{
+        echo '<a class="pure-material-button-contained" href="sign_up.php">Try now</a>';
+      }
+    ?>
   </div>
 </div>
 

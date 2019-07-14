@@ -98,7 +98,7 @@
     <section id="diagnose-result">
   <div class="container">
   <div class="back_to_symptoms">
-  <button onclick="history.go(-1);"> Back to symptoms </button> 
+  <button class="pure-material-button-contained" onclick="history.go(-1);"> Back to symptoms </button> 
 </div>
 
 <?php

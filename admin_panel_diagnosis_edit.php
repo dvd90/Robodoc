@@ -104,49 +104,40 @@
     <!-- Navbar End-->
     <!-- side bar start -->
     <main>
-    <section id="user_edit">
+    <section id="diagnose-edit-admin">
+    <div class="container">
 
-    Users panel
-<ul>
-    <li><a href="admin_panel_users.php"><strong>All Users</strong></a></li>
-
-</ul>
-
-Diagnoses panel
-<ul>
-    <li><a href="admin_panel_diagnoses.php"><strong>All Diagnoses </strong></a></li>
-</ul>
-
-    <!-- side bar end -->
-
-    <h2>Edit Users</h2>
-    
+    <div class="back_to_admin_panel">
+            <button class="pure-material-button-contained" onclick="history.go(-1);"> Back to diagnoses management </button> 
+          </div>
     <?php
             $query = "SELECT * FROM tbl_diseases_221 WHERE id='"
             .$_GET["id"]
             ."'";
             $result = mysqli_query($connection , $query);
             $row1=mysqli_fetch_array($result);
+            
     echo' 
     <form>
-      <h1 class="title-card">Edit your profile</h1>
+      <h1 class="title-card">Edit a diagnose</h1>
       <form class="sign-up-form" method="post" action="edit_post.php">
    <div class="form-group">
     <label for="inputName">Diagnose Name</label>
-    <input type="text" class="form-control" id="inputName" name="editName" value="'.$row1['name'] .'">
+    <input  type="text" class="form-control" id="inputName" name="editName" value="'.$row1['name'] .'">
   </div>
     <div class="form-group">
     <label for="inputPhone">Diagnose ID</label>
-    <input type="text" class="form-control" id="inputID" name="editPhone" value="'.$row1['id'] .'">
+    <input readonly type="text" class="form-control" id="inputID" name="editPhone" value="'.$row1['id'] .'">
   </div>
   <div class="form-group">
     <label for="inputAddress2">User ID</label>
-    <input type="text" class="form-control" id="inputUserID" name="editAddress" value="'.$row1['user_id'] .'">
+    <input readonly type="text" class="form-control" id="inputUserID" name="editAddress" value="'.$row1['user_id'] .'">
   </div>
   <button type="submit" class="pure-material-button-contained">Edit</button>
   <a href="edit_post.php?delete=true" class="btn btn-danger">Delete Account</a>
 </form>';
 ?>
+        </div>
 
       </main>
     </section>

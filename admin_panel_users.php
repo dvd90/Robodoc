@@ -105,7 +105,10 @@
     <!-- side bar start -->
     <main>
     <section id="users">
-      <h1>Manage Users</h1>
+    <div class="back_to_admin_panel">
+  <button class="pure-material-button-contained" onclick="window.location.href='admin_panel.php'"> Back to admin panel </button> 
+</div>
+      <h1>Users Management</h1>
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col">
@@ -146,6 +149,8 @@
 </div>
 </div>
 </div>
+
+
       </main>
     </section>
       <div class="footer">

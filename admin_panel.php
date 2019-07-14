@@ -107,7 +107,7 @@
       <h1>Admin Panel</h1>
     <div class="container">
   <div class="row justify-content-md-center">
-    <div class="col-sm-12 col-md-5">
+    <div class="col-sm-12 col-md-5 mb-5">
       <div class="card-trip">
 <a href="admin_panel_users.php">
   <img src="https://i.ibb.co/BfYq77c/Users.jpg">

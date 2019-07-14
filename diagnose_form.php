@@ -105,8 +105,7 @@
 </button>
     <h3 class="card-title">What are your symptoms?</h3>
       <form action="get_diagnose_form.php" method="POST">
-        <div class="symptoms-form"></div>
-
+      <div class="symptoms-form"></div>
 <button type="submit" class="pure-material-button-contained">Submit</button>
 </form>
     </div>
